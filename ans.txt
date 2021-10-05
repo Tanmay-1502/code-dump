@@ -1,0 +1,60 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s,ans;
+    cout<<"Enter your output: ";
+    cin>>s;
+    int a=0,b=0,c=0;
+    bool x=true,y=true,z=true;
+    
+    for(int i=0;i<s.size();i++){
+        string t;
+        t=s[i];
+        if(t == "("){
+            a++;
+            x=false;
+        }else if(t == ")"){
+            a--;
+        }else if(t == "["){
+            b++;
+            y=false;
+        }else if(t=="]"){
+            b--;
+        }else if(t=="{"){
+            c++;
+            z=false;
+        }else if(t=="}"){
+            c--;
+        }
+    }
+    if(x==false && y==false && z==false && a==0 && b==0 && c==0){
+        ans="true";
+    }else if(x==false && y==false && a==0 && b==0) {
+        ans="true";
+    }else if (y==false && z==false && b==0 && c==0){
+        ans="true";
+    }else if(x==false && z==false && a==0 && c==0){
+        ans="true";
+    }else if (x==false && a==0){
+        ans="true";
+    }else if( y==false && b==0){
+        ans="true";
+    }else if (z==false && c==0){
+        ans="true";
+    }
+    else{
+        ans="false";
+    }
+    cout<<ans;
+    return 0;
+    
+}
