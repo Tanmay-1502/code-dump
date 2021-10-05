@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int reverse(int x) {
+        bool sign=true;
+        if(x<0){
+            sign=false;
+            x=abs(x);
+        }
+        long long int b=0;
+        while(x!=0){
+            long long int c=x%10;
+            if(b > INT_MAX / 10 || (b == INT_MAX / 10 && c > (INT_MAX % 10))) return 0;
+            
+            if(b < INT_MIN / 10 || (b == INT_MIN / 10 && c < (INT_MIN % 10))) return 0;   
+            b=b*10 + c ;
+            x/=10;
+        }
+        
+        
+        if(sign==false){
+            return b*-1;
+        }else{
+        return b;}
+    }
+};
